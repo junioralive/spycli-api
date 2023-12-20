@@ -3,16 +3,11 @@ import requests
 import re
 import json
 import asyncio
-from concurrent.futures import ThreadPoolExecutor
+import concurrent.futures
 from pyppeteer import launch
-import os
-import logging
 
 # Initialize Flask app
 app = Flask(__name__)
-
-# Set up logging
-logging.basicConfig(level=logging.INFO)
 
 # -----------------------------
 # Utility Functions
@@ -130,10 +125,8 @@ async def scrape(url):
         return {"success": False, "error": str(e)}
 
 def run_scrape(url):
-    # Run the scrape function using asyncio's new event loop
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    return loop.run_until_complete(scrape(url))
+    # Wrapper function to run scrape asynchronously
+    return asyncio.get_event_loop().run_until_complete(scrape(url))
 
 # -----------------------------
 # Flask Routes
@@ -167,8 +160,7 @@ def scrape_endpoint():
     if not url:
         return jsonify({"success": False, "error": "No URL provided"}), 400
 
-    # Use ThreadPoolExecutor to run scrape function
-    with ThreadPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor() as executor:
         future = executor.submit(run_scrape, url)
         result = future.result()
 
