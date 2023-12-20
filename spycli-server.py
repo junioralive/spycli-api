@@ -3,7 +3,7 @@ import requests
 import re
 import json
 import asyncio
-from concurrent.futures import ThreadPoolExecutor
+import concurrent.futures
 from pyppeteer import launch
 
 # Initialize Flask app
@@ -160,7 +160,7 @@ def scrape_endpoint():
     if not url:
         return jsonify({"success": False, "error": "No URL provided"}), 400
 
-    with ThreadPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor() as executor:
         future = executor.submit(run_scrape, url)
         result = future.result()
 
