@@ -2,3 +2,4 @@ Flask
 requests
 pyppeteer
 gunicorn
+uvicorn
