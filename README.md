@@ -1,21 +1,16 @@
 ---
-title: Flask
-description: A popular minimal server framework for Python
+title: SPY-CLI API
+description: A backend for the spy-cli.
 tags:
   - python
   - flask
 ---
 
-# Python Flask Example
+# ONE CLICK HOST
 
-This is a [Flask](https://flask.palletsprojects.com/en/1.1.x/) app that serves a simple JSON response.
+This is a API that serves a backend for SPY-CLI.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/zUcpux)
-
-## ✨ Features
-
-- Python
-- Flask
 
 ## 💁‍♀️ How to use
 
