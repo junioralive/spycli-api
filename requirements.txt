@@ -1,10 +1,4 @@
-click
 Flask
-gunicorn
-itsdangerous
-Jinja2
-MarkupSafe
-Werkzeug
-pyppeteer
 requests
-futures
+pyppeteer
+futures; python_version < '3.2'
