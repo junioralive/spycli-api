@@ -3,11 +3,16 @@ import requests
 import re
 import json
 import asyncio
-import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor
 from pyppeteer import launch
+import os
+import logging
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
 
 # -----------------------------
 # Utility Functions
@@ -125,8 +130,10 @@ async def scrape(url):
         return {"success": False, "error": str(e)}
 
 def run_scrape(url):
-    # Wrapper function to run scrape asynchronously
-    return asyncio.get_event_loop().run_until_complete(scrape(url))
+    # Run the scrape function using asyncio's new event loop
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    return loop.run_until_complete(scrape(url))
 
 # -----------------------------
 # Flask Routes
@@ -160,7 +167,8 @@ def scrape_endpoint():
     if not url:
         return jsonify({"success": False, "error": "No URL provided"}), 400
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    # Use ThreadPoolExecutor to run scrape function
+    with ThreadPoolExecutor() as executor:
         future = executor.submit(run_scrape, url)
         result = future.result()
 
@@ -171,5 +179,7 @@ def scrape_endpoint():
 # -----------------------------
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use PORT environment variable if available
-    app.run(host='0.0.0.0', port=port, debug=False)  # Disable debug for production
+    # Get the port number from the environment variable
+    port = int(os.environ.get('PORT', 5000))
+    # Run the app on the host 0.0.0.0 and the port from the environment variable
+    app.run(host='0.0.0.0', port=port)
