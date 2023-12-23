@@ -142,7 +142,7 @@ def search_movies():
     if not search_text:
         return jsonify({"error": "No search text provided"}), 400
 
-    search_url = "https://raw.githubusercontent.com/junioralive/spymovies/main/src/spymovies_data_v2.json"
+    search_url = "https://raw.githubusercontent.com/junioralive/spycli-database/main/src/spycli-database_data.json"
     matching_movies = fetch_and_filter_movies(search_url, search_text)
     return jsonify(matching_movies)
 
