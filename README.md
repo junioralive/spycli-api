@@ -41,7 +41,7 @@ Run the application using the following command:
 python spycli-server.py
 ```
 
-The server will start on `http://localhost:5000` or http://{your ip}:5000
+The server will start on `http://localhost:5000` or `http://{your ip}:5000`
 
 ## Usage
 
