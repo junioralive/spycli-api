@@ -1,4 +1,4 @@
 Flask
 requests
 pyppeteer
-gunicorn
+futures; python_version < '3.2'
