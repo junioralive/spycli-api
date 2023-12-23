@@ -1,7 +1,8 @@
-
 # SPYCLI-API 
 
 This application is the backend for [spy-cli](https://github.com/junioralive/spycli-database) provides an interface for searching, fetching, and scraping movie data. It includes endpoints for searching movies from a JSON source, scraping content from web pages, and processing movie and series data.
+
+You can also try [spycli-noserver](https://github.com/junioralive/spycli-noserver)
 
 ## Features
 
@@ -40,7 +41,7 @@ Run the application using the following command:
 python spycli-server.py
 ```
 
-The server will start on `http://localhost:5000` or https;//{your ip}:5000
+The server will start on `http://localhost:5000` or http://{your ip}:5000
 
 ## Usage
 
@@ -64,10 +65,6 @@ The server will start on `http://localhost:5000` or https;//{your ip}:5000
 - Method: `GET`
 - Query Parameters:
   - `url`: The URL to scrape streaming link.
-  
-## ONE CLICK HOST
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/zUcpux)
 
 ## Contributing
 
