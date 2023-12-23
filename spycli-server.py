@@ -171,7 +171,4 @@ def scrape_endpoint():
 # -----------------------------
 
 if __name__ == '__main__':
-    # Get the port number from the environment variable
-    port = int(os.environ.get('PORT', 5000))
-    # Run the app on the host 0.0.0.0 and the port from the environment variable
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=5000, debug=True)
