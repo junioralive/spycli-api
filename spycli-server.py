@@ -132,6 +132,10 @@ def run_scrape(url):
 # Flask Routes
 # -----------------------------
 
+@app.route('/')
+def home():
+    return jsonify({"spy-cli": "online"})
+
 @app.route('/search', methods=['GET'])
 def search_movies():
     search_text = request.args.get('query')
