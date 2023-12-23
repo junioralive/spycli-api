@@ -2,7 +2,7 @@
 
 This application is the backend for [spy-cli](https://github.com/junioralive/spycli-database) provides an interface for searching, fetching, and scraping movie data. It includes endpoints for searching movies from a JSON source, scraping content from web pages, and processing movie and series data.
 
-You can also try [spycli-noserver](https://github.com/junioralive/spycli-noserver)
+No server No problem, try [spycli-noserver](https://github.com/junioralive/spycli-noserver).
 
 ## Features
 
