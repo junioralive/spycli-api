@@ -6,7 +6,7 @@ No server No problem, try [spycli-noserver](https://github.com/junioralive/spycl
 
 ## Features
 
-- Search movies from [spycli-database](https://github.com/junioralive/spycli) JSON dataset.
+- Search movies from [spycli-database](https://github.com/junioralive/spycli-database) JSON dataset.
 - Scrape content for requested content.
 - Process and parse movie and series data.
 - Asynchronous scraping using Pyppeteer.
