@@ -26,7 +26,7 @@ No server No problem, try [spycli-noserver](https://github.com/junioralive/spycl
    ```
 2. Navigate to the cloned directory:
    ```sh
-   cd your-repository
+   cd spycli-api
    ```
 3. Install required packages:
    ```sh
